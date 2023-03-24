@@ -5,12 +5,12 @@ import (
 	"text/template"
 )
 
-	type Curso struct {
-		Nome 			string
-		CargaHoraria 	int
-	}
+type Curso struct {
+	Nome         string
+	CargaHoraria int
+}
 
-	type Cursos []Curso
+type Cursos []Curso
 
 func main() {
 
