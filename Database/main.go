@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	_"github.com/go-sql-driver/mysql"
+	_"github.com/go-sql-driver/mysql"	
 	"github.com/google/uuid"
 )
 
@@ -21,7 +21,7 @@ func NewProduct(name string, price float64) *Product {
 }
 
 func main() {
-	db, err := sql.Open("mysql", "azvdouglas:vasco@tcp(localhost:3606)/goexpert")
+	db, err := sql.Open("mysql", "azvdouglas:vasco@tcp(localhost:3306)/goexpert")
 	if err != nil {
 		panic(err)
 	}
@@ -30,7 +30,7 @@ func main() {
 	if err != nil {	
 		panic(err)
 	}
-	product := NewProduct("Notebook", 2000.00)
+	product := NewProduct("Porta", 33.06)
 	err = insertProduct(db, product)
 	if err != nil {
 		panic(err)
@@ -49,3 +49,6 @@ func insertProduct(db *sql.DB, product *Product) error {
 	}
 	return nil
 }
+
+//Antes de inserir o produto, é necessário criar a tabela no banco de dados. Para isso, execute o seguinte comando no MySQL:
+//CREATE TABLE products (id varchar(255), name varchar(80), price decimal(10,2), primary key(id));
