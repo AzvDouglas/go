@@ -20,5 +20,5 @@ func main() {
 		panic(err)
 	}
 	defer res.Body.Close()
-	io.Copy(os.Stdout, res.Body) //Copia para o Stdout o body do resultado da requisição
+	io.Copy(os.Stdout, res.Body) //Copia para o Stdout o body da resposta da requisição
 }
