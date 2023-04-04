@@ -1,4 +1,4 @@
-module github.com/AzvDouglas/go/Database
+module github.com/AzvDouglas/go/Database/GORM
 
 go 1.20
 
