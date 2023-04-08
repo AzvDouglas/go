@@ -44,11 +44,12 @@ func main() {
 		panic(err)
 	}
 
-	// product, err = selectProduct(db, product.ID)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Printf("Produto selecionado: %v\nPreço: %.2f\n", product.Name, product.Price)
+	product, err = selectProduct(db, product.ID)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Produto selecionado: %v\nPreço: %.2f\n", product.Name, product.Price)
+	
 	products, err := selectAllProducts(db)
 	if err != nil {
 		panic(err)
