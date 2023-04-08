@@ -1,9 +1,10 @@
 package main
 
 import (
-//	"apis"
+	"github.com/AzvDouglas/go/APIs/configs"
 )
 
 func main() {
-	//config, err := apis.LoadConfig(.env)
+	config, _ := configs.LoadConfig(".")
+	println(config.DBDriver)
 }

@@ -5,7 +5,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-var cfg *Config
 // Config is the configuration for the API
 type Config struct {
 	DBDriver string 	`mapstructure:"DB_DRIVER"`
@@ -20,15 +19,17 @@ type Config struct {
 	TokenAuth	*jwtauth.JWTAuth
 }
 	
-/*
 func init() {		// init() is called before main()
+	LoadConfig(".")
+}
 
-}*/
 func LoadConfig(path string) (*Config, error) {
+	var cfg *Config
+
 	viper.SetConfigName("app_config")
 	viper.SetConfigType("env")
 	viper.AddConfigPath(path)
-	viper.SetConfigFile(path + "/app_config.env")
+	viper.SetConfigFile(path + "env")
 	viper.AutomaticEnv()
 	err := viper.ReadInConfig()
 	if err != nil {
